@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Priority extends Model
+class Tag extends Model
 {
     use HasFactory;
 
@@ -14,10 +14,16 @@ class Priority extends Model
      *
      * @var array
      */
-    protected $fillable = ['name', 'color'];
+    protected $fillable = ['name'];
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class);
+    }
 
     public function tasks()
     {
-        return $this->hasMany(Task::class);
+        return $this->belongsToMany(Task::class);
     }
+
 }

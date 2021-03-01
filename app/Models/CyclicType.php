@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Priority extends Model
+class CyclicType extends Model
 {
     use HasFactory;
 
@@ -14,7 +14,7 @@ class Priority extends Model
      *
      * @var array
      */
-    protected $fillable = ['name', 'color'];
+    protected $fillable = ['name'];
 
     public function tasks()
     {

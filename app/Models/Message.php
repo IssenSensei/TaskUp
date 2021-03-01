@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Priority extends Model
+class Message extends Model
 {
     use HasFactory;
 
@@ -14,10 +14,15 @@ class Priority extends Model
      *
      * @var array
      */
-    protected $fillable = ['name', 'color'];
+    protected $fillable = ['content'];
 
-    public function tasks()
+    public function conversation()
     {
-        return $this->hasMany(Task::class);
+        return $this->belongsTo(Conversation::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }
